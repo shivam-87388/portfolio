@@ -1,38 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Portfolio</title>
+
+    <!-- particles.js CDN -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        /* 🟢 Particles background for hero section only */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            /* Remove background-color if hero already has one */
+        }
+    </style>
+
 </head>
 
 <body>
-    <div class="bg-gray-300 min-h-screen flex items-center justify-center">
-        <div class="w-full bg-gray-900 text-white font-sans mt-15 ml-15 mr-15">
+    <div class="relative bg-gray-300 min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="relative bg-gray-900 text-white font-sans mt-12 ml-12 mr-12">
 
-            <header class="shadow-sm shadow-gray-300 text-gray-400 body-font">
-                <div class="w-full px-4 sm:px-6 lg:px-10 py-5 flex flex-col md:flex-row items-center">
-                    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center space-x-4">
-                        <a href="/workexperience" class="mr-5 cursor-pointer hover:text-white text-center "><span
-                                class="block sm:inline">Work</span> <span class="block sm:inline">
-                                Experience</span></a>
-                        <a class="mr-5 cursor-pointer hover:text-white">Certification</a>
-                        <a class="mr-5 cursor-pointer hover:text-white">Skills</a>
-                        <a class="mr-5 cursor-pointer hover:text-white">Education</a>
-                        <a class="mr-5 cursor-pointer hover:text-white">Fourth Link</a>
-                    </nav>
+
+            <!-- flex w-96 justify-bwteen  -->
+
+            <header class=" relative z-20 shadow-sm shadow-gray-300 text-gray-400 body-font">
+                <div class="w-full px-5 sm:px-6 lg:px-10 py-5 flex justify-end">
+                    
                 </div>
             </header>
 
-            <section class="w-full px-4 sm:px-6 lg:px-10 py-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold">Hello<span
-                            class="text-red-500">.</span></h1>
-                    <h1 class="text-2xl sm:text-4xl md:text-5xl font-semibold mt-4">I'm Shivam</h1>
+            <!-- hero section -->
+
+
+
+            <section
+                class=" relative z-10 w-full px-4 sm:px-6 lg:px-10 py-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center ">
+
+                <!-- <div id="particles-js" class="absolute top-[80px] left-0 w-full h-[calc(100vh-80px)] z-0"></div> -->
+
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold">Hello<span class="text-red-500">.</span>
+                    </h1>
+                    <h1 class="text-2xl sm:text-4xl md:text-5xl font-semibold mt-4 mb-4">I'm Shivam</h1>
                     <h2 class="text-xl sm:text-3xl md:text-4xl font-bold mt-1 text-white">
-                        SEO EXECUTIVE & FULL STACK Developer
+                        SEO Executive <br> & <br> MERN Stack Developer
                     </h2>
 
                     <div class="mt-6 flex flex-wrap gap-4">
@@ -59,19 +82,28 @@
                     </div>
                 </div>
             </section>
+            
+            <!-- Skills section-->
 
-            <div
-                class="w-full px-4 sm:px-6 lg:px-10 flex justify-center space-x-2 sm:space-x-4 py-4 text-gray-400 text-sm flex-wrap">
-                <span class="hover:text-white cursor-pointer">HTML5</span>
-                <span class="hover:text-white cursor-pointer">CSS</span>
-                <span class="hover:text-white cursor-pointer">Javascript</span>
-                <span class="hover:text-white cursor-pointer">Node.js</span>
-                <span class="hover:text-white cursor-pointer">React</span>
-                <span class="hover:text-white cursor-pointer">Git</span>
-                <span class="hover:text-white cursor-pointer">Github</span>
-            </div>
+            <h2 class="flex justify-center text-xl sm:text-md font-semibold text-gray-400 underline underline-offset-2 mb-2">Skills</h2>
+
+<div
+  class="w-full px-4 sm:px-6 lg:px-10 flex justify-center flex-wrap gap-2 py-1 text-gray-400 text-md font-semibold sm:text-md">
+  
+  <span class="hover:text-white cursor-pointer">SEO Optimization</span>
+  <span class="hover:text-white cursor-pointer">HTML5</span>
+  <span class="hover:text-white cursor-pointer">CSS</span>
+  <span class="hover:text-white cursor-pointer">Javascript</span>
+  <span class="hover:text-white cursor-pointer">Node.js</span>
+  <span class="hover:text-white cursor-pointer">React</span>
+  <span class="hover:text-white cursor-pointer">Git</span>
+  <span class="hover:text-white cursor-pointer">Github</span>
+</div>
 
             <section class="w-full px-4 sm:px-6 lg:px-10 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <div id="particles-js" class="absolute top-[80px] left-0 w-full h-[calc(100vh-80px)] z-0"></div>
+
                 <div class="space-y-6">
                     <div class="flex items-center space-x-4">
                         <div class="text-red-500 text-2xl">📈</div>
@@ -87,7 +119,8 @@
                     </div>
                 </div>
                 <div>
-                    <h2 class="text-2xl sm:text-3xl font-bold mb-4">About me</h2>
+
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-4 underline underline-offset-2">About me</h2>
                     <p class="text-gray-300 mb-4 text-base sm:text-lg leading-relaxed">
                         Hello! I'm Shivam Singh, a passionate and results-driven SEO Executive and Full Stack Developer
                         with hands-on experience in optimizing websites for search engines and building dynamic,
@@ -120,11 +153,291 @@
                             <p class="text-sm text-gray-300">Years of Experience</p>
                         </div>
                     </div>
-                </div>
+                </div> 
+
+
             </section>
 
-        </div>
+            <!-- Experience section start -->
+
+       <section>
+  <h2 class="flex justify-center sm:text-3xl font-bold text-white mb-4 underline underline-offset-2">
+    Experience
+  </h2>
+
+  <!-- Full-time SEO Executive -->
+  <div class="text-white px-4 sm:px-6 py-6 sm:py-8 font-sans border-b-2 border-gray-300">
+    <div class="flex items-center mb-2">
+      <span class="text-blue-600 text-lg sm:text-xl mr-2">👜</span>
+      <h2 class="text-2xl sm:text-xl font-semibold text-white underline underline-offset-2 ">SEO Executive</h2>
     </div>
+
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-1 sm:gap-0">
+      <span class="text-base sm:text-lg font-semibold text-white underline">Karyarth Consultancy</span>
+      <span class="text-sm sm:text-base font-semibold text-white underline underline-offset-2">04/07/2024 – 31/07/2025</span>
+    </div>
+
+    <p class="text-gray-300 mb-4 text-base sm:text-lg leading-relaxed">
+      As a <span class="font-medium">full-time SEO Executive</span> at Karyarth Consultancy,
+      I was responsible for driving the company’s organic growth strategy. I implemented
+      advanced SEO techniques to improve website rankings, increase traffic, and deliver measurable results.
+    </p>
+
+    <ul class="mt-6 list-none pl-0 text-gray-300 space-y-2 text-base sm:text-lg leading-relaxed">
+      <li>📊 Conducted comprehensive SEO audits and improved site architecture</li>
+      <li>🔍 Led in-depth keyword research and competitor analysis</li>
+      <li>🛠️ Implemented on-page SEO techniques (meta tags, schema markup, internal linking)</li>
+      <li>🔗 Built and maintained a high-quality backlink strategy</li>
+      <li>📈 Monitored performance using Google Analytics, GSC, and SEMrush</li>
+      <li>🧾 Created and presented monthly reports highlighting SEO KPIs and growth metrics</li>
+    </ul>
+    <div class="mt-6 mb-6">
+  <h3 class="flex justify-center text-2xl font-semibold p-2 underline underline-offset-2">
+    Experience Letter
+  </h3>
+  <div class="p-2 rounded-2xl">
+  <a href="experience/certification/Shivam SEO Executive experience letter.pdf" target="_blank">
+    <img src="experience/certification/Shivam SEO Executive experience letter_pages-to-jpg-0001.jpg" 
+         alt="Search Engine Optimization (SEO) Internship Reliving Letter" 
+         class="mx-auto h-[600px] object-contain mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3 transform transition-transform duration-500 hover:scale-90">
+  </a>
+  <div class="flex flex-col">
+    <span class="text-gray-300 font-semibold text-xl text-center">
+      SEO-Executive Experience Letter
+    </span>
+  </div>
+</div>
+</div>
+
+   
+  </div>
+
+  <!-- Internship -->
+  <div class="text-white px-4 sm:px-6 py-6 sm:py-8 font-sans border-b-2 border-gray-300">
+    <div class="flex items-center mb-2">
+      <span class="text-gray-300 text-lg sm:text-xl mr-2">👜</span>
+      <h2 class="text-lg sm:text-xl font-semibold text-white underline underline-offset-2">SEO Executive Intern</h2>
+    </div>
+
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-1 sm:gap-0">
+      <span class="text-base sm:text-lg font-semibold text-white underline">Karyarth Consultancy</span>
+      <span class="text-sm sm:text-base font-semibold text-white underline underline-offset-2">10/10/2023 – 04/07/2024</span>
+    </div>
+
+    <p class="text-gray-300 mb-4 text-base sm:text-lg leading-relaxed">
+      During my internship at Karyarth Consultancy, I worked as an
+      <span class="font-medium">SEO Executive Intern</span> and contributed
+      to the company’s online growth by improving search engine rankings and visibility.
+    </p>
+
+    <ul class="mt-6 list-none pl-0 text-gray-300 space-y-2 text-base sm:text-lg leading-relaxed">
+      <li>✅ Assisted in planning and executing SEO strategies</li>
+      <li>🔍 Performed keyword research and competitor analysis</li>
+      <li>🛠️ Optimized web pages for on-page SEO (meta tags, headings, internal linking)</li>
+      <li>🔗 Created backlinks and handled off-page SEO tasks</li>
+      <li>📈 Monitored performance using Google Search Console and SEMrush</li>
+      <li>🧾 Supported content strategy and technical SEO audits</li>
+    </ul>
+  </div>
+</section>
+<!-- end experience section -->
+        
+           
+<!-- Projects section start -->
+<div class="font-sans py-6 w-full px-4 sm:px-6 lg:px-10 py-12 md:grid-cols-2">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <h2 class="flex justify-center sm:text-3xl font-bold text-white mb-4 underline underline-offset-2">Projects</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+
+      <!-- project 1 -->
+      <div class="cursor-pointer p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
+        <img src="project/localhost_3000_product.png" 
+             alt="Product page" 
+             class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
+        <div class="flex flex-col">
+          <span class="text-gray-300 font-semibold text-xl ">Product page</span>
+        </div>
+      </div>
+
+      <!-- project 2 -->
+      <div class="cursor-pointer p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
+        <img src="project/localhost_3000_signup.png" 
+             alt="SignUp page"
+             class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
+        <div class="flex flex-col">
+          <span class="text-gray-300 font-semibold text-xl">SignUp page</span>
+        </div>
+      </div>
+
+      <!-- project 3 -->
+      <div class="cursor-pointer p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
+        <img src="project/localhost_3000_todolist.png" 
+             alt="Todo List"
+             class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
+        <div class="flex flex-col">
+          <span class="text-gray-300 font-semibold text-xl">Todo List</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Projects section end -->
+
+<!-- certifficate section start -->
+
+<div class="font-sans py-6 w-full px-4 sm:px-6 lg:px-10 py-12 md:grid-cols-2 pb-180">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <h2 class="flex justify-center sm:text-3xl font-bold text-white mb-4 underline underline-offset-2">Certificate of Achievement</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+
+      <!-- certificate 1 -->
+      <div class="p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
+        <a href="experience/certification/Google My Business _ Google.pdf" target="_blank">
+    <img src="experience/certification/Google My Business _ Google_page-0001.jpg" 
+         alt="Google My Business Certification" 
+         class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
+  </a>
+        <div class="flex flex-col">
+          <span class="text-gray-300 font-semibold text-xl">Google My Business Certification</span>
+        </div>
+      </div>
+
+      <!-- certificate 2 -->
+      <div class="p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
+        <a href="https://static.semrush.com/academy/certificates/7ba1fd9c38/shivam-singh_25.pdf" target="_blank">
+          <img src="experience/certification/certificatesemrush2.png" 
+            alt="SEMrush Certification" 
+            class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
+        </a>
+        <div class="flex flex-col">
+          <span class="text-gray-300 font-semibold text-xl">Getting Started with Semrush</span>
+        </div>
+      </div>
+
+      <!-- certificate 3 -->
+      <div class="p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
+        <a href="https://static.semrush.com/academy/certificates/4529c8c605/shivam-singh_1.pdf" target="_blank">
+          <img src="experience/certification/certificatesemrush.png" 
+            alt="SEMrush Certification" 
+            class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
+        </a>
+        <div class="flex flex-col">
+          <span class="text-gray-300 font-semibold text-xl">Keyword Research with Semrush</span>
+        </div>
+      </div>
+
+      <!-- certificate 4 -->
+      <div class="p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
+        <a href="https://static.semrush.com/academy/certificates/b273375b27/shivam-singh_25.pdf" target="_blank">
+          <img src="experience/certification/certificatesemrush1.png" 
+            alt="SEMrush Certification" 
+            class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
+        </a>
+        <div class="flex flex-col">
+          <span class="text-gray-300 font-semibold text-xl">SEO Essentials with Semrush</span>
+        </div>
+      </div>
+
+       <!-- certificate 5 -->
+      <div class="p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
+         <a href="experience/certification/Relieving letter Shivam SEO Executive .pdf" target="_blank">
+         <img src="experience/certification/Relieving letter Shivam SEO Executive _page-0001.jpg" 
+         alt="Search Engine Optimization (SEO) Internship Reliving Letter" 
+        class="mx-auto w-full max-h-[400px] sm:max-h-[500px] md:max-h-[600px] object-contain mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3 transform transition-transform duration-500 hover:scale-90">
+  </a>
+        <div class="flex flex-col">
+          <span class="text-gray-300 font-semibold text-xl">Search Engine Optimization (SEO) Internship Reliving Letter</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- certificate section end -->
+
+
+    <!-- certificates section end -->
+
+
+    <!-- footer -->
+<footer class="text-gray-600 body-font shadow-xl border-t-2 border-gray-300 bg-gray-900">
+  <div class="container mx-auto py-4 px-5 flex flex-col sm:flex-row items-center sm:items-center gap-3">
+    
+    <!-- Copyright -->
+    <p class="text-gray-400 text-sm text-center sm:text-left font-sans font-medium tracking-wide">
+      © 2025 All Rights Reserved — 
+      <span class="font-semibold text-gray-300">@Shivam Singh</span>
+    </p>
+
+    <!-- Social Icons -->
+    <div class="flex justify-center sm:justify-end mt-3 sm:mt-0 sm:ml-auto space-x-4">
+      <a href="https://wa.me/918738861537" 
+         class="inline-block transform transition-transform duration-300 ease-in-out hover:scale-110 text-2xl text-gray-300 hover:text-green-500"
+         target="_blank" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+
+      <a href="https://www.instagram.com/thakur_shivamsingh_38" 
+         class="inline-block transform transition-transform duration-300 ease-in-out hover:scale-110 text-2xl text-gray-300 hover:text-pink-500"
+         target="_blank" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://www.facebook.com/shivasingh87" 
+         class="inline-block transform transition-transform duration-300 ease-in-out hover:scale-110 text-2xl text-gray-300 hover:text-blue-600"
+         target="_blank" aria-label="Facebook">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/shivam-singh-125b27288/" 
+         class="inline-block transform transition-transform duration-300 ease-in-out hover:scale-110 text-2xl text-gray-300 hover:text-blue-500"
+         target="_blank" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+
+  </div>
+</footer>
+<!-- end fotter -->
+
 </body>
+<!-- particles.js library -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<!-- particles.js config -->
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#ef4444" }, // ✅ red color
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5 },
+            "size": { "value": 3, "random": true },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ef4444",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": { "enable": true, "speed": 2 }
+        },
+        "interactivity": {
+            "events": {
+                "onhover": { "enable": true, "mode": "repulse" },
+                "onclick": { "enable": true, "mode": "push" }
+            },
+            "modes": {
+                "repulse": { "distance": 100 },
+                "push": { "particles_nb": 4 }
+            }
+        },
+        "retina_detect": true
+    });
+</script>
+
 
 </html>
