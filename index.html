@@ -14,6 +14,9 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
+       html {
+            scroll-behavior: smooth;
+        }
         /* 🟢 Particles background for hero section only */
         #particles-js {
             position: absolute;
@@ -30,7 +33,7 @@
 
 <body>
     <div class="relative bg-gray-300 min-h-screen flex items-center justify-center overflow-hidden">
-        <div class="relative bg-gray-900 text-white font-sans mt-12 ml-12 mr-12">
+        <div class="relative bg-gray-900 text-white font-sans md:mt-12 md:ml-12 md:mr-12">
 
 
             <!-- flex w-96 justify-bwteen  -->
@@ -58,11 +61,11 @@
                         SEO Executive <br> & <br> MERN Stack Developer
                     </h2>
 
-                    <div class="mt-6 flex flex-wrap gap-4">
-                        <button class="bg-red-500 cursor-pointer text-white px-4 py-2">
+                    <div class="mt-6 flex flex-wrap gap-4 justify-center md:justify-start">
+                        <a href="#projects" class="bg-red-500 cursor-pointer text-white px-4 py-2">
                             My project ?
-                        </button>
-                        <a href="section2/frontend/public/resume.pdf" target="_blank" rel="noopener noreferrer">
+                    </a>
+                        <a href="resume/shivam singhcv.pdf" target="_blank" rel="noopener noreferrer">
                             <button
                                 class="bg-transparent border border-red-500 text-white px-4 py-2 hover:bg-red-500 hover:text-white transition cursor-pointer">
                                 My resume
@@ -72,7 +75,7 @@
                 </div>
                 <div class="flex justify-center relative mt-10 md:mt-0">
                     <div class="relative z-10">
-                        <img src="shivam.png" alt="Profile"
+                        <img src="shivam.png.png" alt="Profile"
                             class="w-48 sm:w-60 md:w-72 rounded-full border-4 border-red-500" />
                     </div>
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0">
@@ -195,22 +198,20 @@
   <h3 class="flex justify-center text-2xl font-semibold p-2 underline underline-offset-2">
     Experience Letter
   </h3>
-  <div class="p-2 rounded-2xl">
-  <a href="experience/certification/Shivam SEO Executive experience letter.pdf" target="_blank">
-    <img src="experience/certification/Shivam SEO Executive experience letter_pages-to-jpg-0001.jpg" 
-         alt="Search Engine Optimization (SEO) Internship Reliving Letter" 
-         class="mx-auto h-[600px] object-contain mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3 transform transition-transform duration-500 hover:scale-90">
+<div class="cursor-pointer rounded-2xl shadow-xl hover:shadow-2xl transform transition duration-500 hover:scale-90 max-w-[600px] mx-auto p-3">
+  <a href="certificate/Shivam SEO Executive experience letter.pdf" target="_blank">
+    <img src="certificate/Shivam SEO Executive experience letter_pages-to-jpg-0001.jpg"
+         alt="Search Engine Optimization (SEO) Internship Relieving Letter"
+         class="w-full h-auto rounded-md border-4 border-red-500 object-contain block mx-auto p-1">
   </a>
-  <div class="flex flex-col">
-    <span class="text-gray-300 font-semibold text-xl text-center">
-      SEO-Executive Experience Letter
-    </span>
+  <div class="py-3 text-center">
+    <span class="text-gray-300 font-semibold text-xl">SEO Executive Experience Letter</span>
   </div>
-</div>
 </div>
 
-   
+</div>  
   </div>
+  <!-- end experience section -->
 
   <!-- Internship -->
   <div class="text-white px-4 sm:px-6 py-6 sm:py-8 font-sans border-b-2 border-gray-300">
@@ -237,14 +238,14 @@
       <li>🔗 Created backlinks and handled off-page SEO tasks</li>
       <li>📈 Monitored performance using Google Search Console and SEMrush</li>
       <li>🧾 Supported content strategy and technical SEO audits</li>
-    </ul>
+    </ul> 
   </div>
-</section>
-<!-- end experience section -->
+ 
+<!-- end internship section -->
         
            
 <!-- Projects section start -->
-<div class="font-sans py-6 w-full px-4 sm:px-6 lg:px-10 py-12 md:grid-cols-2">
+<div id="projects" class="font-sans py-6 w-full px-4 sm:px-6 lg:px-10 py-12 md:grid-cols-2">
   <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
     <h2 class="flex justify-center sm:text-3xl font-bold text-white mb-4 underline underline-offset-2">Projects</h2>
 
@@ -252,31 +253,49 @@
 
       <!-- project 1 -->
       <div class="cursor-pointer p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
-        <img src="project/localhost_3000_product.png" 
+        <a href="project/Screenshot 2025-10-24 153436.png" target="_blank">
+        <img src="project/Screenshot 2025-10-24 153436.png" 
              alt="Product page" 
              class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
-        <div class="flex flex-col">
-          <span class="text-gray-300 font-semibold text-xl ">Product page</span>
+        </a>
+             <div class="flex flex-col">
+          <span class="text-gray-300 font-semibold text-xl ">Todo List</span>
         </div>
       </div>
 
       <!-- project 2 -->
       <div class="cursor-pointer p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
-        <img src="project/localhost_3000_signup.png" 
+        <a href="project/localhost_3000_signup (1).png" target="_blank">
+        <img src="project/localhost_3000_signup (1).png" 
              alt="SignUp page"
              class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
-        <div class="flex flex-col">
+        </a>
+             <div class="flex flex-col">
           <span class="text-gray-300 font-semibold text-xl">SignUp page</span>
         </div>
       </div>
 
       <!-- project 3 -->
       <div class="cursor-pointer p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
-        <img src="project/localhost_3000_todolist.png" 
+        <a href="project/localhost_3000_product (1).png" target="_blank">
+        <img src="project/localhost_3000_product (1).png" 
              alt="Todo List"
              class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
-        <div class="flex flex-col">
-          <span class="text-gray-300 font-semibold text-xl">Todo List</span>
+        </a>
+             <div class="flex flex-col">
+          <span class="text-gray-300 font-semibold text-xl">Product Page</span>
+        </div>
+      </div>
+
+<!-- project 4 -->
+      <div class="cursor-pointer p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
+        <a href="project/localhost_3000_ (2).png"target="_blank">
+        <img src="project/localhost_3000_ (2).png" 
+             alt="Todo List"
+             class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
+        </a>
+             <div class="flex flex-col">
+          <span class="text-gray-300 font-semibold text-xl">Property Wala Project</span>
         </div>
       </div>
 
@@ -295,8 +314,8 @@
 
       <!-- certificate 1 -->
       <div class="p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
-        <a href="experience/certification/Google My Business _ Google.pdf" target="_blank">
-    <img src="experience/certification/Google My Business _ Google_page-0001.jpg" 
+        <a href="certificate\Google My Business _ Google.pdf" target="_blank">
+    <img src="certificate/Google My Business _ Google_page-0001 (1).jpg" 
          alt="Google My Business Certification" 
          class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
   </a>
@@ -308,7 +327,7 @@
       <!-- certificate 2 -->
       <div class="p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
         <a href="https://static.semrush.com/academy/certificates/7ba1fd9c38/shivam-singh_25.pdf" target="_blank">
-          <img src="experience/certification/certificatesemrush2.png" 
+          <img src="certificate\certificate semrush2.png" 
             alt="SEMrush Certification" 
             class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
         </a>
@@ -320,7 +339,7 @@
       <!-- certificate 3 -->
       <div class="p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
         <a href="https://static.semrush.com/academy/certificates/4529c8c605/shivam-singh_1.pdf" target="_blank">
-          <img src="experience/certification/certificatesemrush.png" 
+          <img src="certificate/certificate semrush3.png"
             alt="SEMrush Certification" 
             class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
         </a>
@@ -330,28 +349,41 @@
       </div>
 
       <!-- certificate 4 -->
-      <div class="p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
-        <a href="https://static.semrush.com/academy/certificates/b273375b27/shivam-singh_25.pdf" target="_blank">
-          <img src="experience/certification/certificatesemrush1.png" 
-            alt="SEMrush Certification" 
-            class="w-full h-60 object-cover mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3">
-        </a>
-        <div class="flex flex-col">
-          <span class="text-gray-300 font-semibold text-xl">SEO Essentials with Semrush</span>
-        </div>
-      </div>
+             <div class="cursor-pointer rounded-2xl shadow-xl hover:shadow-2xl transform transition duration-500 hover:scale-90 max-w-[600px] mx-auto p-3">
+  <a href="https://static.semrush.com/academy/certificates/b273375b27/shivam-singh_25.pdf" target="_blank">
+    <img src="certificate/certificate semrush-1.png"
+         alt="SEO Essentials with Semrush certificate"
+         class="w-full h-auto rounded-md border-4 border-red-500 object-contain block mx-auto p-1">
+  </a>
+  <div class="py-3 ">
+    <span class="text-gray-300 font-semibold text-xl">SEO Essentials with Semrush</span>
+  </div>
+</div>
+
+      
 
        <!-- certificate 5 -->
-      <div class="p-3 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-90">
-         <a href="experience/certification/Relieving letter Shivam SEO Executive .pdf" target="_blank">
-         <img src="experience/certification/Relieving letter Shivam SEO Executive _page-0001.jpg" 
-         alt="Search Engine Optimization (SEO) Internship Reliving Letter" 
-        class="mx-auto w-full max-h-[400px] sm:max-h-[500px] md:max-h-[600px] object-contain mb-2 border-4 border-red-500 rounded-md p-1 block overflow-hidden shadow-lg lg:mb-3 transform transition-transform duration-500 hover:scale-90">
+             <div class="cursor-pointer rounded-2xl shadow-xl hover:shadow-2xl transform transition duration-500 hover:scale-90 max-w-[600px] mx-auto p-3">
+  <a href="certificate/Relieving letter Shivam SEO Executive .pdf" target="_blank">
+    <img src="certificate/Relieving letter Shivam SEO Executive _page-0001.jpg"
+         alt="Search Engine Optimization (SEO) Internship Relieving Letter"
+         class="w-full h-auto rounded-md border-4 border-red-500 object-contain block mx-auto p-1">
   </a>
-        <div class="flex flex-col">
-          <span class="text-gray-300 font-semibold text-xl">Search Engine Optimization (SEO) Internship Reliving Letter</span>
-        </div>
-      </div>
+  <div class="py-3 ">
+    <span class="text-gray-300 font-semibold text-xl">Search Engine Optimization (SEO)  Reliving Letter</span>
+  </div>
+</div>
+<!-- certificate 6--->
+       <div class="cursor-pointer rounded-2xl shadow-xl hover:shadow-2xl transform transition duration-500 hover:scale-90 max-w-[600px] mx-auto p-3">
+  <a href="certificate/FSDM_6867_Shivam_Singh.pdf" target="_blank">
+    <img src="certificate/FSDM_6867_Shivam_Singh_page-0001.jpg"
+         alt="Full Stack development: Mern certificate"
+         class="w-full h-auto rounded-md border-4 border-red-500 object-contain block mx-auto p-1">
+  </a>
+  <div class="py-3 ">
+    <span class="text-gray-300 font-semibold text-xl">Full Stack development: Mern</span>
+  </div>
+</div>
 
     </div>
   </div>
