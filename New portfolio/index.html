@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shivam Singh — SEO Executive, Full Stack Developer & UI/UX Designer based in Lucknow, India.">
+<title>Shivam Singh — SEO · Full Stack · UI/UX</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,700&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
+<style>
+/* ══ TOKENS ══ */
+:root{
+  --vanilla:#F2F3AE;--gold:#EDD382;--sandy:#FC9E4F;
+  --flame:#FF521B;--prussian:#020122;
+  --bg:#020122;--surface:#07072e;--card:#0c0c38;
+  --border:rgba(252,158,79,.14);
+  --text:#F2F3AE;--muted:rgba(242,243,174,.48);
+  --radius:20px;
+}
+
+/* ══ RESET ══ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+/* CHANGE 1: Normal system cursor everywhere */
+body{background:var(--bg);color:var(--text);font-family:'Geist Mono',monospace;font-size:14px;line-height:1.6;overflow-x:hidden;cursor:auto}
+img{max-width:100%;display:block}
+/* CHANGE 2: Pointer cursor on links and buttons */
+a{cursor:pointer}
+button{cursor:pointer}
+.btn-fire,.btn-ghost,.nav-cta,.hamburger,.cert-card{cursor:pointer}
+
+/* ══ NAV ══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content:space-between;align-items:center;padding:16px 56px;background:rgba(2,1,34,.85);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;letter-spacing:-.03em;background:linear-gradient(120deg,var(--flame),var(--sandy));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:11px;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--sandy)}
+.nav-cta{padding:9px 22px;background:var(--flame) !important;color:#fff !important;border-radius:100px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;transition:background .2s,transform .2s}
+.nav-cta:hover{background:var(--sandy) !important;transform:translateY(-1px)}
+/* hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--sandy);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+/* mobile nav */
+.mobile-nav{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(2,1,34,.97);border-bottom:1px solid var(--border);z-index:299;padding:24px 32px;flex-direction:column;gap:20px}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--muted);text-decoration:none;font-size:14px;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.mobile-nav a:hover{color:var(--sandy)}
+
+/* ══ HERO ══ */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:110px 24px 80px;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 40%,rgba(255,82,27,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 30% at 20% 80%,rgba(252,158,79,.07) 0%,transparent 60%);pointer-events:none;z-index:0}
+#hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(252,158,79,.1) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:780px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:7px 20px;border:1px solid rgba(255,82,27,.35);border-radius:100px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sandy);margin-bottom:32px;animation:fadeUp .7s ease both}
+.bdot{width:7px;height:7px;background:var(--flame);border-radius:50%;animation:blink 1.4s infinite;flex-shrink:0}
+.hero-name{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(48px,9vw,108px);line-height:.88;letter-spacing:-.05em;margin-bottom:18px;animation:fadeUp .7s .1s ease both}
+.n1{display:block;color:var(--vanilla)}
+.n2{display:block;background:linear-gradient(100deg,var(--flame) 0%,var(--sandy) 45%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-tagline{font-family:'Montserrat',sans-serif;font-weight:300;font-style:italic;font-size:clamp(14px,2.2vw,22px);color:var(--gold);letter-spacing:.04em;margin-bottom:18px;animation:fadeUp .7s .2s ease both}
+.hero-desc{max-width:500px;margin:0 auto 36px;font-size:13px;color:var(--muted);line-height:1.9;animation:fadeUp .7s .3s ease both}
+.hero-roles{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:44px;animation:fadeUp .7s .4s ease both}
+.role{padding:7px 18px;border-radius:100px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em}
+.r1{background:rgba(255,82,27,.14);border:1px solid rgba(255,82,27,.38);color:var(--flame)}
+.r2{background:rgba(252,158,79,.14);border:1px solid rgba(252,158,79,.38);color:var(--sandy)}
+.r3{background:rgba(237,211,130,.14);border:1px solid rgba(237,211,130,.38);color:var(--gold)}
+.hero-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;animation:fadeUp .7s .5s ease both}
+.btn-fire{padding:13px 32px;background:linear-gradient(135deg,var(--flame),var(--sandy));color:var(--prussian);font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;letter-spacing:.04em;border:none;border-radius:100px;cursor:pointer;text-decoration:none;display:inline-block;box-shadow:0 8px 32px rgba(255,82,27,.32);transition:transform .2s,box-shadow .2s}
+.btn-fire:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(255,82,27,.48)}
+.btn-ghost{padding:13px 32px;background:transparent;color:var(--vanilla);font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;border:1px solid rgba(242,243,174,.2);border-radius:100px;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:var(--sandy);color:var(--sandy)}
+#scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:5}
+#scroll-ind span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.scroll-line{width:1px;height:36px;background:linear-gradient(var(--flame),transparent);animation:scrollP 1.8s ease-in-out infinite}
+
+/* ══ TICKER ══ */
+.ticker{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:13px 0;background:rgba(255,82,27,.05)}
+.ticker-inner{display:flex;gap:48px;animation:ticker 30s linear infinite;white-space:nowrap}
+.ti{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px;flex-shrink:0}
+.td{width:5px;height:5px;background:var(--flame);border-radius:50%;flex-shrink:0}
+
+/* ══ SECTION LAYOUT ══ */
+.sec{padding:96px 56px;max-width:1200px;margin:0 auto}
+.sec-hdr{display:flex;align-items:baseline;gap:16px;margin-bottom:60px;flex-wrap:wrap}
+.sec-n{font-size:11px;color:var(--flame);letter-spacing:.2em;font-family:'Geist Mono',monospace;flex-shrink:0}
+.sec-t{font-family:'Montserrat',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-.03em;line-height:1}
+.sec-l{flex:1;height:1px;background:var(--border);min-width:40px}
+.sdiv{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 56px}
+
+/* ══ ABOUT ══ */
+.about-grid{display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:start}
+.photo-wrap{position:relative;padding-bottom:40px}
+.photo-frame{width:100%;aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--card);position:relative}
+.photo-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:linear-gradient(145deg,#0c0c38,#111148);color:var(--muted);font-size:12px;letter-spacing:.08em;text-align:center;padding:24px}
+.ph-avatar{font-size:72px;opacity:.35;margin-bottom:8px}
+.ph-name{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--sandy);font-size:15px;opacity:.7}
+.ph-hint{font-size:10px;opacity:.5;line-height:1.6}
+.photo-badge{position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--border);border-radius:100px;padding:8px 18px;white-space:nowrap;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sandy);font-family:'Montserrat',sans-serif;font-weight:600}
+.adot2{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:blink 1.5s infinite;flex-shrink:0}
+.photo-chip{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px 16px;backdrop-filter:blur(8px)}
+.chip-1{top:16px;right:-18px;animation:floatY 4s ease-in-out infinite}
+.chip-2{bottom:52px;right:-22px;animation:floatY 4s 2s ease-in-out infinite}
+.chip-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:24px;color:var(--flame);line-height:1}
+.chip-lbl{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+.about-content h3{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(24px,3vw,36px);letter-spacing:-.03em;line-height:1.1;margin-bottom:18px}
+.about-content h3 span{background:linear-gradient(100deg,var(--flame),var(--sandy));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.about-bio{font-size:13.5px;color:var(--muted);line-height:1.95;margin-bottom:28px}
+.about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.ahl{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;align-items:flex-start;gap:12px;transition:border-color .3s}
+.ahl:hover{border-color:rgba(255,82,27,.35)}
+.ahl-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.ahl-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;margin-bottom:4px}
+.ahl-text{font-size:12px;color:var(--muted);line-height:1.55}
+.about-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* ══ SERVICES ══ */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.c3d{perspective:900px}
+.c3d-inner{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:38px 30px;position:relative;overflow:hidden;transform-style:preserve-3d;transition:transform .08s ease,box-shadow .3s;will-change:transform}
+.c3d:hover .c3d-inner{box-shadow:0 28px 72px rgba(255,82,27,.2),0 0 0 1px rgba(255,82,27,.18)}
+.sheen{position:absolute;inset:0;border-radius:var(--radius);background:linear-gradient(110deg,rgba(255,255,255,.07) 0%,transparent 55%);pointer-events:none;opacity:0;transition:opacity .3s}
+.c3d:hover .sheen{opacity:1}
+.orb{position:absolute;width:170px;height:170px;border-radius:50%;filter:blur(55px);opacity:.12;top:-40px;right:-30px;pointer-events:none;transition:opacity .4s}
+.c3d:hover .orb{opacity:.3}
+.orb-f{background:var(--flame)}.orb-s{background:var(--sandy)}.orb-g{background:var(--gold)}
+.cicon{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:22px;position:relative;z-index:1}
+.ci1{background:rgba(255,82,27,.14);border:1px solid rgba(255,82,27,.28)}
+.ci2{background:rgba(252,158,79,.14);border:1px solid rgba(252,158,79,.28)}
+.ci3{background:rgba(237,211,130,.14);border:1px solid rgba(237,211,130,.28)}
+.ctitle{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.02em;margin-bottom:11px;position:relative;z-index:1}
+.cdesc{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:22px;position:relative;z-index:1}
+.ctags{display:flex;flex-wrap:wrap;gap:6px;position:relative;z-index:1}
+.ctag{padding:3px 11px;border-radius:100px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-family:'Geist Mono',monospace;border:1px solid var(--border);color:var(--muted);transition:all .2s}
+.c3d:hover .ctag{border-color:rgba(252,158,79,.3);color:var(--sandy)}
+
+/* ══ STATS ══ */
+.stats-strip{padding:68px 56px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:linear-gradient(135deg,rgba(255,82,27,.05) 0%,rgba(252,158,79,.02) 100%)}
+.stats-g{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.sitem{text-align:center}
+.snum{font-family:'Montserrat',sans-serif;font-weight:900;font-size:52px;letter-spacing:-.05em;line-height:1;background:linear-gradient(135deg,var(--flame),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.slbl{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+
+/* ══ EXPERIENCE ══ */
+.exp-timeline{position:relative;padding-left:32px}
+.exp-timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,var(--flame),var(--sandy),transparent)}
+.exp-item{position:relative;margin-bottom:44px}
+.exp-item:last-child{margin-bottom:0}
+.exp-dot{position:absolute;left:-38px;top:8px;width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--flame),var(--sandy));border:2px solid var(--bg);box-shadow:0 0 0 3px rgba(255,82,27,.22)}
+.exp-dot.cur{animation:dotP 2s ease-in-out infinite}
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;transition:border-color .3s,transform .25s}
+.exp-card:hover{border-color:rgba(255,82,27,.3);transform:translateX(5px)}
+.exp-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;flex-wrap:wrap;gap:10px}
+.exp-role{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.02em}
+.exp-period{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--flame);background:rgba(255,82,27,.1);border:1px solid rgba(255,82,27,.22);padding:4px 13px;border-radius:100px;white-space:nowrap;flex-shrink:0}
+.exp-co{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.exp-co-name{font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;color:var(--sandy)}
+.exp-co-loc{font-size:12px;color:var(--muted)}
+.exp-desc{font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:14px}
+.exp-achs{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.exp-ach{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted);line-height:1.6}
+.exp-ach::before{content:'▸';color:var(--flame);flex-shrink:0;margin-top:1px}
+.exp-skls{display:flex;flex-wrap:wrap;gap:6px}
+.eskl{padding:3px 11px;border-radius:100px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-family:'Geist Mono',monospace;border:1px solid var(--border);color:var(--muted)}
+
+/* ══ PROJECTS ══ */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transform-style:preserve-3d;transition:transform .08s ease,box-shadow .3s;will-change:transform}
+.pcard:hover{box-shadow:0 36px 80px rgba(255,82,27,.17),0 0 0 1px rgba(255,82,27,.14)}
+.pcard.wide{grid-column:span 2}
+.pthumb{height:210px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pcard.wide .pthumb{height:256px}
+.tbg{position:absolute;inset:0}
+.tb1{background:radial-gradient(ellipse at 30% 50%,rgba(255,82,27,.3) 0%,rgba(2,1,34,0) 70%),var(--prussian)}
+.tb2{background:radial-gradient(ellipse at 70% 30%,rgba(252,158,79,.25) 0%,rgba(2,1,34,0) 70%),var(--prussian)}
+.proj-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;z-index:1}
+.proj-ph-icon{font-size:46px;opacity:.65}
+.proj-ph-lbl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);opacity:.7}
+.plbl{position:absolute;top:14px;right:14px;padding:4px 13px;border-radius:100px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-family:'Geist Mono',monospace;z-index:2}
+.lf{background:rgba(255,82,27,.2);border:1px solid rgba(255,82,27,.45);color:var(--flame)}
+.ll{background:rgba(242,243,174,.1);border:1px solid rgba(242,243,174,.25);color:var(--vanilla)}
+.pbody{padding:22px 26px}
+.ptitle{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.02em;margin-bottom:8px}
+.pdesc{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:16px}
+.pfoot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.plinks{display:flex;gap:12px}
+.plink{font-size:11px;color:var(--flame);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;font-family:'Geist Mono',monospace;transition:color .2s}
+.plink:hover{color:var(--sandy)}
+.plink.sec{color:var(--muted)}.plink.sec:hover{color:var(--vanilla)}
+
+/* ══ CERTIFICATIONS ══ */
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;position:relative;overflow:hidden;transition:border-color .3s,transform .25s;cursor:pointer}
+.cert-card:hover{border-color:rgba(255,82,27,.35);transform:translateY(-4px)}
+.cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--flame),var(--sandy));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.cert-card:hover::before{transform:scaleX(1)}
+.cert-logo{width:46px;height:46px;border-radius:12px;background:rgba(255,82,27,.1);border:1px solid rgba(255,82,27,.2);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+.cert-issuer{font-size:10px;color:var(--flame);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;font-family:'Geist Mono',monospace}
+.cert-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;letter-spacing:-.01em;margin-bottom:12px;line-height:1.35}
+.cert-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-top:12px}
+.cert-date{font-size:11px;color:var(--muted);letter-spacing:.06em}
+.cert-badge{font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-family:'Geist Mono',monospace;padding:3px 10px;border-radius:100px;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.25);color:#4ade80}
+
+/* ══ SKILLS ══ */
+.skill-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.sglbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--flame);margin-bottom:20px}
+.sbar{margin-bottom:16px}
+.sbhdr{display:flex;justify-content:space-between;margin-bottom:7px;font-size:13px}
+.sbpct{color:var(--muted)}
+.sbtrack{height:3px;background:rgba(242,243,174,.06);border-radius:3px;overflow:hidden}
+.sbfill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--flame),var(--sandy));transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+.sbfill.go{transform:scaleX(1)}
+.tech-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.tpill{padding:7px 15px;border-radius:100px;border:1px solid var(--border);font-size:11px;letter-spacing:.06em;color:var(--muted);font-family:'Geist Mono',monospace;transition:all .2s;cursor:default}
+.tpill:hover{border-color:var(--sandy);color:var(--sandy);background:rgba(252,158,79,.07)}
+
+/* ══ CONTACT ══ */
+.contact-lay{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.ch{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(28px,4vw,46px);letter-spacing:-.04em;line-height:1.05;margin-bottom:18px}
+.chf{background:linear-gradient(135deg,var(--flame),var(--sandy));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.csub{font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:36px}
+.cinfo{display:flex;flex-direction:column}
+.citem{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--muted);font-size:13px;transition:color .2s}
+.citem:hover{color:var(--vanilla)}
+.cico{width:34px;height:34px;border-radius:10px;background:rgba(255,82,27,.1);border:1px solid rgba(255,82,27,.22);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.form{display:flex;flex-direction:column;gap:14px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-family:'Geist Mono',monospace}
+.fi,.fta{background:rgba(242,243,174,.04);border:1px solid var(--border);border-radius:12px;padding:13px 15px;color:var(--vanilla);font-family:'Geist Mono',monospace;font-size:13px;outline:none;resize:none;transition:border-color .2s}
+.fi:focus,.fta:focus{border-color:rgba(255,82,27,.5)}
+.fi::placeholder,.fta::placeholder{color:rgba(242,243,174,.18)}
+.fta{height:120px}
+
+/* ══ MOVI DEKHO special card ══ */
+.movi-thumb{height:210px !important;padding:0;overflow:hidden}
+.movi-card:hover{box-shadow:0 36px 80px rgba(229,9,20,.22),0 0 0 1px rgba(229,9,20,.2) !important}
+@media(max-width:768px){.movi-thumb{height:200px !important}}
+
+/* ══ FOOTER ══ */
+footer{padding:32px 56px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.flogo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;background:linear-gradient(135deg,var(--flame),var(--sandy));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.fcopy{font-size:12px;color:var(--muted)}
+.favail{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.avdot{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:blink 1.5s infinite}
+
+/* ══ ANIMATIONS ══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes scrollP{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes dotP{0%,100%{box-shadow:0 0 0 3px rgba(255,82,27,.22)}50%{box-shadow:0 0 0 7px rgba(255,82,27,.07)}}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media(max-width:1024px){
+  .srv-grid{grid-template-columns:1fr 1fr}
+  .cert-grid{grid-template-columns:1fr 1fr}
+  .stats-g{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:260px 1fr;gap:48px}
+  nav{padding:16px 32px}
+  .sdiv{margin:0 32px}
+  .sec{padding:80px 32px}
+  .stats-strip{padding:60px 32px}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  nav{padding:14px 24px}
+  #hero{padding:96px 20px 72px}
+  .sec{padding:64px 20px}
+  .sdiv{margin:0 20px}
+  .stats-strip{padding:52px 20px}
+  footer{padding:28px 20px}
+  .about-grid{grid-template-columns:1fr;gap:60px}
+  .photo-wrap{max-width:260px;margin:0 auto}
+  .chip-1{right:-12px;top:12px}
+  .chip-2{right:-14px;bottom:52px}
+  .srv-grid{grid-template-columns:1fr}
+  .stats-g{grid-template-columns:repeat(2,1fr);gap:28px}
+  .snum{font-size:42px}
+  .proj-grid{grid-template-columns:1fr}
+  .pcard.wide{grid-column:span 1}
+  .pcard.wide .pthumb{height:200px}
+  .cert-grid{grid-template-columns:1fr}
+  .skill-layout{grid-template-columns:1fr;gap:40px}
+  .contact-lay{grid-template-columns:1fr;gap:48px}
+  .frow{grid-template-columns:1fr}
+  .about-highlights{grid-template-columns:1fr}
+  .exp-timeline{padding-left:24px}
+  .exp-dot{left:-30px}
+  .exp-card{padding:20px 22px}
+  .exp-hdr{flex-direction:column;gap:8px}
+}
+@media(max-width:480px){
+  .hero-name{font-size:clamp(40px,12vw,64px)}
+  .sec-t{font-size:26px}
+  .snum{font-size:36px}
+  .stats-g{grid-template-columns:repeat(2,1fr)}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-fire,.btn-ghost{width:100%;text-align:center}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+<!-- CHANGE: Custom cursor divs removed — normal system cursor now used -->
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="#" class="nav-logo">Shivam.dev</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mob-nav">
+  <a href="#about" class="mob-link">About</a>
+  <a href="#experience" class="mob-link">Experience</a>
+  <a href="#work" class="mob-link">Projects</a>
+  <a href="#certifications" class="mob-link">Certifications</a>
+  <a href="#skills" class="mob-link">Skills</a>
+  <a href="#contact" class="mob-link">Hire Me</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="bdot"></span>Open to Work · Lucknow, India</div>
+    <h1 class="hero-name">
+      <span class="n1">Shivam Singh</span>
+      <span class="n2">Builder.</span>
+    </h1>
+    <p class="hero-tagline">SEO Executive · Full Stack Developer · UI/UX Designer</p>
+    <p class="hero-desc">Results-driven developer with 1.5+ years of experience building high-performance, SEO-optimised web applications using the MERN stack. Increased organic rankings by 35% across client portfolios.</p>
+    <div class="hero-roles">
+      <span class="role r1">◎ SEO Executive</span>
+      <span class="role r2">⚙ Full Stack Dev</span>
+      <span class="role r3">◈ UI/UX Designer</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#work" class="btn-fire" id="cta-work">View My Work</a>
+      <a href="#contact" class="btn-ghost">Hire Me →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ti"><span class="td"></span>React.js</span>
+    <span class="ti"><span class="td"></span>Node.js & Express</span>
+    <span class="ti"><span class="td"></span>MongoDB & REST APIs</span>
+    <span class="ti"><span class="td"></span>Technical SEO</span>
+    <span class="ti"><span class="td"></span>Google Search Console</span>
+    <span class="ti"><span class="td"></span>SEMrush & Ahrefs</span>
+    <span class="ti"><span class="td"></span>Figma & Tailwind</span>
+    <span class="ti"><span class="td"></span>Core Web Vitals</span>
+    <span class="ti"><span class="td"></span>React.js</span>
+    <span class="ti"><span class="td"></span>Node.js & Express</span>
+    <span class="ti"><span class="td"></span>MongoDB & REST APIs</span>
+    <span class="ti"><span class="td"></span>Technical SEO</span>
+    <span class="ti"><span class="td"></span>Google Search Console</span>
+    <span class="ti"><span class="td"></span>SEMrush & Ahrefs</span>
+    <span class="ti"><span class="td"></span>Figma & Tailwind</span>
+    <span class="ti"><span class="td"></span>Core Web Vitals</span>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<div class="sec" id="about">
+  <div class="sec-hdr"><span class="sec-n">01</span><h2 class="sec-t">About Me</h2><div class="sec-l"></div></div>
+  <div class="about-grid">
+
+    <div class="photo-wrap">
+      <div class="photo-frame">
+        <img src="\shivam.png.png"
+             style="width:100%;height:100%;object-fit:cover;display:block"
+             onerror="this.style.display='none';document.getElementById('ph-fallback').style.display='flex'"
+             alt="Shivam Singh">
+      </div>
+      <div class="photo-chip chip-1">
+        <div class="chip-num">1.5+</div>
+        <div class="chip-lbl">Yrs Exp</div>
+      </div>
+      <div class="photo-chip chip-2">
+        <div class="chip-num">35%</div>
+        <div class="chip-lbl">SEO Growth</div>
+      </div>
+      <div class="photo-badge"><span class="adot2"></span>Available Now</div>
+    </div>
+
+    <div class="about-content">
+      <h3>I build things that <span>live on the web</span> — and rank on it too.</h3>
+      <p class="about-bio">
+        Hey! I'm Shivam Singh — a Full Stack Developer, UI/UX Designer, and SEO Executive based in Lucknow, Uttar Pradesh. With 1.5+ years of professional experience, I specialise in building end-to-end digital products using the MERN stack, designing intuitive interfaces in Figma, and crafting SEO strategies that deliver measurable organic growth.<br><br>
+        I believe great software is invisible — it just works, looks beautiful, and gets found. I've increased organic search rankings by an average of 35% across managed client portfolios and reduced crawl errors by 40% through technical SEO audits.
+      </p>
+      <div class="about-highlights">
+        <div class="ahl"><div class="ahl-icon">🔍</div><div><div class="ahl-title">SEO Executive</div><div class="ahl-text">35% avg ranking boost · 50+ backlinks/mo · GSC & SEMrush</div></div></div>
+        <div class="ahl"><div class="ahl-icon">⚙️</div><div><div class="ahl-title">MERN Stack</div><div class="ahl-text">MongoDB, Express, React, Node — full-stack production apps</div></div></div>
+        <div class="ahl"><div class="ahl-icon">🎨</div><div><div class="ahl-title">UI/UX Design</div><div class="ahl-text">Figma, Tailwind CSS, design systems & prototyping</div></div></div>
+        <div class="ahl"><div class="ahl-icon">🚀</div><div><div class="ahl-title">Performance</div><div class="ahl-text">90+ PageSpeed · CWV optimised · semantic HTML5</div></div></div>
+      </div>
+      <div class="about-actions">
+        <a href="#contact" class="btn-fire">Work With Me</a>
+        <a href="/cdn-cgi/l/email-protection#e38b82918794868f8f908b8a95828e908a8d848bd1d3d3d1a3848e828a8fcd808c8e" class="btn-ghost">Email Me →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="sdiv"></div>
+
+<!-- ═══ SERVICES ═══ -->
+<div class="sec" id="services">
+  <div class="sec-hdr"><span class="sec-n">02</span><h2 class="sec-t">What I Do</h2><div class="sec-l"></div></div>
+  <div class="srv-grid">
+    <div class="c3d"><div class="c3d-inner"><div class="orb orb-f"></div><div class="sheen"></div><div class="cicon ci1">🔍</div><div class="ctitle">SEO Strategy</div><p class="cdesc">Technical audits, keyword research, competitor analysis, link building, and schema markup that compounds organic growth month over month.</p><div class="ctags"><span class="ctag">Tech SEO</span><span class="ctag">SEMrush</span><span class="ctag">GSC</span><span class="ctag">Link Building</span><span class="ctag">Schema</span></div></div></div>
+    <div class="c3d"><div class="c3d-inner"><div class="orb orb-s"></div><div class="sheen"></div><div class="cicon ci2">⚙️</div><div class="ctitle">Full Stack Dev</div><p class="cdesc">End-to-end MERN stack web apps — REST APIs, authentication, real-time features, and responsive frontends that are fast and scalable.</p><div class="ctags"><span class="ctag">React.js</span><span class="ctag">Node.js</span><span class="ctag">MongoDB</span><span class="ctag">Express</span><span class="ctag">REST API</span></div></div></div>
+    <div class="c3d"><div class="c3d-inner"><div class="orb orb-g"></div><div class="sheen"></div><div class="cicon ci3">◈</div><div class="ctitle">UI/UX Design</div><p class="cdesc">User-centred design from wireframes to polished interfaces using Figma. Design systems, prototyping, and Tailwind CSS implementation.</p><div class="ctags"><span class="ctag">Figma</span><span class="ctag">Tailwind</span><span class="ctag">Wireframing</span><span class="ctag">Prototyping</span></div></div></div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-g">
+    <div class="sitem"><div class="snum">1.5+</div><div class="slbl">Years Experience</div></div>
+    <div class="sitem"><div class="snum">35%</div><div class="slbl">Avg SEO Growth</div></div>
+    <div class="sitem"><div class="snum">10+</div><div class="slbl">Clients Managed</div></div>
+    <div class="sitem"><div class="snum">50+</div><div class="slbl">Backlinks / Month</div></div>
+  </div>
+</div>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<div class="sec" id="experience">
+  <div class="sec-hdr"><span class="sec-n">03</span><h2 class="sec-t">Work Experience</h2><div class="sec-l"></div></div>
+  <div class="exp-timeline">
+
+    <div class="exp-item">
+      <div class="exp-dot cur"></div>
+      <div class="exp-card">
+        <div class="exp-hdr">
+          <div class="exp-role">SEO Executive</div>
+          <div class="exp-period">July 2024 — July 2025</div>
+        </div>
+        <div class="exp-co">
+          <span class="exp-co-name">🏢 Karyarth Consultancy</span>
+          <span class="exp-co-loc">· Lucknow, Uttar Pradesh</span>
+        </div>
+        <p class="exp-desc">Led comprehensive on-page and off-page SEO strategies across 10+ client websites, collaborating with a cross-functional team of 8+ members including content writers and developers.</p>
+        <div class="exp-achs">
+          <div class="exp-ach">Achieved an average 35% improvement in organic search rankings across 10+ client websites within 6 months.</div>
+          <div class="exp-ach">Identified 200+ high-value ranking opportunities and content gaps per quarter using SEMrush and Google Keyword Planner.</div>
+          <div class="exp-ach">Reduced crawl errors by 40% on average per site through technical SEO audits — diagnosing site architecture, crawlability, XML sitemaps, and robots.txt issues.</div>
+          <div class="exp-ach">Acquired 50+ high-authority backlinks per month via directory submissions and targeted outreach campaigns.</div>
+          <div class="exp-ach">Improved click-through rates by 20% over 3 months through weekly data-driven performance reports via Google Analytics and GSC.</div>
+        </div>
+        <div class="exp-skls"><span class="eskl">Technical SEO</span><span class="eskl">SEMrush</span><span class="eskl">Google Analytics</span><span class="eskl">GSC</span><span class="eskl">Link Building</span><span class="eskl">Keyword Research</span></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-hdr">
+          <div class="exp-role">SEO Intern</div>
+          <div class="exp-period">October 2023 — July 2024</div>
+        </div>
+        <div class="exp-co">
+          <span class="exp-co-name">🏢 Karyarth Consultancy</span>
+          <span class="exp-co-loc">· Lucknow, Uttar Pradesh</span>
+        </div>
+        <p class="exp-desc">Assisted senior SEO specialists in keyword research, meta tag optimisation, and on-page improvements for 5+ client websites, gaining daily proficiency in industry-standard tools.</p>
+        <div class="exp-achs">
+          <div class="exp-ach">Built 20+ backlinks per month through structured outreach and directory submissions under supervision.</div>
+          <div class="exp-ach">Executed website audits identifying technical and content-level SEO deficiencies; proposed remediation strategies adopted in 90% of cases.</div>
+          <div class="exp-ach">Compiled weekly SEO performance reports tracking organic traffic, CTR, and keyword rankings across a portfolio of 5 clients.</div>
+        </div>
+        <div class="exp-skls"><span class="eskl">On-Page SEO</span><span class="eskl">Off-Page SEO</span><span class="eskl">Google Analytics</span><span class="eskl">SEMrush</span><span class="eskl">Site Audit</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="sdiv"></div>
+
+<!-- ═══ PROJECTS ═══ -->
+<div class="sec" id="work">
+  <div class="sec-hdr"><span class="sec-n">04</span><h2 class="sec-t">Featured Projects</h2><div class="sec-l"></div></div>
+  <div class="proj-grid">
+
+    <div class="pcard wide">
+      <div class="pthumb">
+        <div class="tbg tb1"></div>
+        <div class="proj-ph"><div class="proj-ph-icon">🔗</div><img src="project/image.png" class="proj-ph-lbl">Add Screenshot</img></div>
+        <span class="plbl lf">Featured</span>
+      </div>
+      <div class="pbody">
+        <div class="ptitle">SEO Broken Link & Orphan Page Checker</div>
+        <p class="pdesc">Full-stack MERN SEO audit application that automatically detects broken links and orphan pages, reducing manual audit time by an estimated 70%. Features a web-crawling module that maps internal linking structures, surfaces 404 errors and unlinked pages, and provides actionable SEO recommendations. Includes token-based user authentication for multi-user access and a fully responsive Tailwind CSS frontend.</p>
+        <div class="pfoot">
+          <div class="ctags"><span class="ctag">MongoDB</span><span class="ctag">Express</span><span class="ctag">React</span><span class="ctag">Node.js</span><span class="ctag">Tailwind</span><span class="ctag">JWT Auth</span></div>
+          <div class="plinks"><a href="https://orphan-and-broken-page-checker-fbyktv8ml-shivam-87388s-projects.vercel.app/" target="_blank" class="plink sec">Live Demo ↗</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard">
+      <div class="pthumb">
+        <div class="tbg tb2"></div>
+        <div class="proj-ph"><div class="proj-ph-icon">🌐</div><div class="proj-ph-lbl">Add Screenshot</div></div>
+        <span class="plbl ll">Portfolio</span>
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Personal Portfolio Website</div>
+        <p class="pdesc">Fully responsive portfolio built with SEO-friendly semantic HTML5, structured data, and performance optimisations — image compression, lazy loading, and asset minification. Achieved a 90+ Google PageSpeed score.</p>
+        <div class="pfoot">
+          <div class="ctags"><span class="ctag">HTML5</span><span class="ctag">Tailwind CSS</span><span class="ctag">SEO</span><span class="ctag">PageSpeed</span></div>
+          <div class="plinks">
+            <a href="https://shivam-87388.github.io/portfolio/" target="_blank" class="plink">Live ↗</a>
+            <a href="https://github.com/shivam-87388" target="_blank" class="plink sec">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOVI DEKHO — UI/UX Project -->
+    <div class="pcard movi-card">
+      <div class="pthumb movi-thumb" style="position:relative;overflow:hidden">
+        <!-- 🎬 APNI VIDEO FILE KA NAAM NEECHE DAALO — src="your-video.mp4" -->
+        <img
+          src="project/movi dekho app.png" alt="ui/ux project"
+          style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;position:absolute;inset:0">
+        </img>
+        <!-- Gradient overlay -->
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,1,34,0.65) 0%,transparent 55%);pointer-events:none;z-index:1"></div>
+        <!-- Play hint badge -->
+        
+        <span class="plbl" style="background:rgba(229,9,20,0.25);border:1px solid rgba(229,9,20,0.6);color:#ff6b6b;z-index:2">UI/UX Design</span>
+      </div>
+      <div class="pbody">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="width:32px;height:32px;border-radius:8px;background:rgba(229,9,20,0.15);border:1px solid rgba(229,9,20,0.35);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🎬</div>
+          <div class="ptitle" style="margin-bottom:0">Movi Dekho — Streaming App</div>
+        </div>
+        <p class="pdesc">End-to-end UI/UX design of a Hindi OTT streaming platform for movies and web series. Designed in Figma with a cinematic dark aesthetic — featuring a hero banner, personalised "Continue Watching" rail, trending carousels, genre filters, and a detail page with ratings and cast. Research-backed design: user flows, wireframes, lo-fi prototypes, and a polished hi-fi system with a custom design token library.</p>
+        <div class="pfoot">
+          <div class="ctags">
+            <span class="ctag">Figma</span>
+            <span class="ctag">UI/UX</span>
+            <span class="ctag">Design System</span>
+            <span class="ctag">Prototyping</span>
+            <span class="ctag">Wireframing</span>
+            <span class="ctag">User Research</span>
+          </div>
+          <div class="plinks">
+            <a href="project/movi dekho aap .webm" target="_blank" class="plink" style="display:inline-flex;align-items:center;gap:6px;padding:7px 18px;background:rgba(229,9,20,0.15);border:1px solid rgba(229,9,20,0.4);border-radius:100px;color:#ff6b6b;transition:all .2s" onmouseover="this.style.background='rgba(229,9,20,0.28)'" onmouseout="this.style.background='rgba(229,9,20,0.15)'">▶ Watch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="sdiv"></div>
+
+<!-- ═══ CERTIFICATIONS ═══ -->
+<div class="sec" id="certifications">
+  <div class="sec-hdr"><span class="sec-n">05</span><h2 class="sec-t">Certifications</h2><div class="sec-l"></div></div>
+  <div class="cert-grid">
+    <div class="cert-card"><div class="cert-logo">🔍</div><div class="cert-issuer">Google</div><div class="cert-name">Google My Business Certification</div><div class="cert-meta"><span class="cert-date">Google</span><a href="certificate/Google My Business _ Google.pdf" class="cert-badge">View Cert ↗</a></div></div>
+    <div class="cert-card"><div class="cert-logo">📊</div><div class="cert-issuer">SEMrush Academy</div><div class="cert-name">SEO Essentials with SEMrush</div><div class="cert-meta"><span class="cert-date">SEMrush Academy</span><a href="https://static.semrush.com/academy/certificates/b273375b27/shivam-singh_25.pdf" class="cert-badge">View Cert ↗</a></div></div>
+    <div class="cert-card"><div class="cert-logo">🔑</div><div class="cert-issuer">SEMrush Academy</div><div class="cert-name">Keyword Research with SEMrush: Step-by-Step Guide</div><div class="cert-meta"><span class="cert-date">SEMrush Academy</span><a href="https://static.semrush.com/academy/certificates/4529c8c605/shivam-singh_1.pdf" class="cert-badge">View Cert ↗</a></div></div>
+    <div class="cert-card"><div class="cert-logo">🚀</div><div class="cert-issuer">SEMrush Academy</div><div class="cert-name">Getting Started with SEMrush</div><div class="cert-meta"><span class="cert-date">SEMrush Academy</span><a href="https://static.semrush.com/academy/certificates/7ba1fd9c38/shivam-singh_25.pdf" class="cert-badge">View Cert ↗</a></div></div>
+    <div class="cert-card"><div class="cert-logo">💻</div><div class="cert-issuer">Digipodium</div><div class="cert-name">Full Stack Web Development Certification</div><div class="cert-meta"><span class="cert-date">Digipodium</span><a href="certificate/FSDM_6867_Shivam_Singh.pdf" class="cert-badge">View Cert ↗</a></div></div>
+  </div>
+</div>
+
+<div class="sdiv"></div>
+
+<!-- ═══ SKILLS ═══ -->
+<div class="sec" id="skills">
+  <div class="sec-hdr"><span class="sec-n">06</span><h2 class="sec-t">Skills & Stack</h2><div class="sec-l"></div></div>
+  <div class="skill-layout">
+    <div>
+      <div style="margin-bottom:36px">
+        <div class="sglbl">// SEO & Digital Marketing</div>
+        <div class="sbar"><div class="sbhdr"><span>Technical SEO</span><span class="sbpct">90%</span></div><div class="sbtrack"><div class="sbfill" data-w="90"></div></div></div>
+        <div class="sbar"><div class="sbhdr"><span>Keyword Research & Analysis</span><span class="sbpct">88%</span></div><div class="sbtrack"><div class="sbfill" data-w="88"></div></div></div>
+        <div class="sbar"><div class="sbhdr"><span>Google Analytics & GSC</span><span class="sbpct">85%</span></div><div class="sbtrack"><div class="sbfill" data-w="85"></div></div></div>
+        <div class="sbar"><div class="sbhdr"><span>Link Building</span><span class="sbpct">82%</span></div><div class="sbtrack"><div class="sbfill" data-w="82"></div></div></div>
+      </div>
+      <div style="margin-bottom:36px">
+        <div class="sglbl">// Full Stack Development</div>
+        <div class="sbar"><div class="sbhdr"><span>React.js</span><span class="sbpct">85%</span></div><div class="sbtrack"><div class="sbfill" data-w="85"></div></div></div>
+        <div class="sbar"><div class="sbhdr"><span>Node.js & Express</span><span class="sbpct">82%</span></div><div class="sbtrack"><div class="sbfill" data-w="82"></div></div></div>
+        <div class="sbar"><div class="sbhdr"><span>MongoDB & REST APIs</span><span class="sbpct">80%</span></div><div class="sbtrack"><div class="sbfill" data-w="80"></div></div></div>
+      </div>
+      <div>
+        <div class="sglbl">// Design & Tools</div>
+        <div class="sbar"><div class="sbhdr"><span>Figma & UI/UX</span><span class="sbpct">82%</span></div><div class="sbtrack"><div class="sbfill" data-w="82"></div></div></div>
+        <div class="sbar"><div class="sbhdr"><span>Tailwind CSS</span><span class="sbpct">88%</span></div><div class="sbtrack"><div class="sbfill" data-w="88"></div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sglbl" style="margin-bottom:18px">// Full Tech Stack</div>
+      <div class="tech-cloud">
+        <span class="tpill">React.js</span><span class="tpill">Node.js</span><span class="tpill">Express.js</span><span class="tpill">MongoDB</span>
+        <span class="tpill">JavaScript ES6+</span><span class="tpill">HTML5</span><span class="tpill">CSS3</span><span class="tpill">Tailwind CSS</span>
+        <span class="tpill">REST APIs</span><span class="tpill">Figma</span><span class="tpill">Git & GitHub</span><span class="tpill">VS Code</span>
+        <span class="tpill">Technical SEO</span><span class="tpill">On-Page SEO</span><span class="tpill">Off-Page SEO</span><span class="tpill">SEMrush</span>
+        <span class="tpill">Google Analytics</span><span class="tpill">GSC</span><span class="tpill">Keyword Research</span><span class="tpill">Link Building</span>
+        <span class="tpill">Site Audit</span><span class="tpill">Content Optimization</span><span class="tpill">Responsive Design</span><span class="tpill">Thunder Client</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sdiv"></div>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="sec" id="contact">
+  <div class="sec-hdr"><span class="sec-n">07</span><h2 class="sec-t">Get In Touch</h2><div class="sec-l"></div></div>
+  <div class="contact-lay">
+    <div>
+      <h3 class="ch">Let's build something <span class="chf">remarkable</span> together.</h3>
+      <p class="csub">Looking for a developer who can build fast, rank high, and design beautifully? Let's talk about your next project.</p>
+      <div class="cinfo">
+        <a href="tel:+918738861537" class="citem"><div class="cico">📞</div>+91 87388 61537</a>
+        <a href="mailto:hardwellshivamsingh2002@gmail.com" class="citem"><div class="cico">✉</div>hardwellshivamsingh2002@gmail.com</a>
+        <a href="https://www.linkedin.com/in/shivam-singh-125b27288/" target="_blank" class="citem"><div class="cico">in</div>linkedin.com/in/shivam-singh125b27288</a>
+        <a href="https://github.com/shivam-87388" target="_blank" class="citem"><div class="cico">🧑‍💻</div>github.com/shivam-87388</a>
+        <a href="#" class="citem"><div class="cico">📍</div>Lucknow, Uttar Pradesh, India</a>
+      </div>
+    </div>
+
+    <!-- CHANGE 3: form tag added with id="contact-form", name attributes added to all inputs -->
+    <form id="contact-form" class="form">
+      <div class="frow">
+        <div class="fg"><label class="fl">Name</label><input type="text" name="from_name" class="fi" placeholder="Your name" required></div>
+        <div class="fg"><label class="fl">Email</label><input type="email" name="from_email" class="fi" placeholder="your@email.com" required></div>
+      </div>
+      <div class="fg"><label class="fl">Subject</label><input type="text" name="subject" class="fi" placeholder="What's it about?"></div>
+      <div class="fg"><label class="fl">Message</label><textarea name="message" class="fta" placeholder="Tell me about your project..." required></textarea></div>
+      <button type="submit" class="btn-fire" style="border:none" id="send-btn">Send Message 🚀</button>
+    </form>
+
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="flogo">Shivam.dev</div>
+  <div class="fcopy">© 2026 Shivam Singh · SEO · Full Stack · UI/UX · Lucknow</div>
+  <div class="favail"><span class="avdot"></span>Available</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── HAMBURGER ── */
+const ham=document.getElementById('ham'),mobNav=document.getElementById('mob-nav');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mobNav.classList.toggle('open')});
+document.querySelectorAll('.mob-link').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mobNav.classList.remove('open')}));
+
+/* ── MO.JS ── */
+window.addEventListener('load',()=>{
+  if(!window.mojs)return;
+  const F='#FF521B',S='#FC9E4F',G='#EDD382',V='#F2F3AE';
+
+  /* ambient hero */
+  new mojs.Shape({shape:'circle',fill:'none',stroke:F,strokeWidth:{2:0},strokeDasharray:'60,60',radius:{0:120},left:'10%',top:'32%',opacity:{.6:0},duration:2200,easing:'sine.out',isShowStart:true,repeat:999}).play();
+  new mojs.Shape({shape:'circle',fill:'none',stroke:S,strokeWidth:{1.5:0},strokeDasharray:'80,80',radius:{0:90},left:'90%',top:'66%',opacity:{.5:0},duration:3000,delay:800,easing:'cubic.out',isShowStart:true,repeat:999}).play();
+  new mojs.Shape({shape:'polygon',fill:G,fillOpacity:0,stroke:G,strokeWidth:{1.5:0},points:6,radius:{0:48},left:'6%',top:'70%',rotate:{0:180},opacity:{.45:0},duration:3500,delay:400,easing:'cubic.out',isShowStart:true,repeat:999}).play();
+  new mojs.Shape({shape:'cross',fill:'none',stroke:V,strokeWidth:{1:0},radius:{0:28},left:'84%',top:'22%',rotate:{0:90},opacity:{.35:0},duration:2800,delay:1200,easing:'sine.out',isShowStart:true,repeat:999}).play();
+
+  /* click burst */
+  const b1=new mojs.Burst({radius:{0:88},count:8,children:{shape:'circle',fill:[F,S,G,V,F,S],radius:{6:0},duration:700,easing:'quad.out'}});
+  const b2=new mojs.Burst({radius:{0:58},count:6,children:{shape:'line',stroke:[F,S,G],strokeWidth:2,scaleX:{1:0},radius:{11:0},duration:500,easing:'cubic.out'}});
+  const b3=new mojs.Shape({shape:'circle',fill:'none',stroke:S,strokeWidth:{3:0},radius:{0:68},opacity:{1:0},duration:600,easing:'quad.out'});
+  const b4=new mojs.Burst({radius:{0:52},count:9,children:{shape:'polygon',points:3,fill:[F,S,G,V],rotate:{360:0},radius:{7:0},duration:780,delay:'stagger(0,38)',easing:'cubic.out'}});
+
+  document.addEventListener('click',e=>{
+    const x=e.pageX,y=e.pageY;
+    b1.tune({x,y}).generate().replay();
+    b2.tune({x,y}).generate().replay();
+    b3.tune({x,y}).replay();
+    b4.tune({x,y}).generate().replay();
+  });
+
+  /* CTA button */
+  const ctaBtn=document.getElementById('cta-work');
+  if(ctaBtn){
+    const cb=new mojs.Burst({radius:{0:130},count:12,children:{shape:'circle',fill:[F,S,G,V,F,S,G],radius:{8:0},duration:900,delay:'stagger(0,60)',easing:'cubic.out'}});
+    const cr1=new mojs.Shape({shape:'circle',fill:'none',stroke:F,strokeWidth:{4:0},radius:{0:100},opacity:{1:0},duration:700,easing:'quad.out'});
+    const cr2=new mojs.Shape({shape:'circle',fill:'none',stroke:G,strokeWidth:{2:0},radius:{0:140},opacity:{.6:0},duration:900,delay:100,easing:'quad.out'});
+    ctaBtn.addEventListener('click',e=>{
+      e.preventDefault();
+      const r=ctaBtn.getBoundingClientRect();
+      const x=r.left+r.width/2+window.scrollX,y=r.top+r.height/2+window.scrollY;
+      cb.tune({x,y}).generate().replay();
+      cr1.tune({x,y}).replay();cr2.tune({x,y}).replay();
+      setTimeout(()=>document.querySelector('#work').scrollIntoView({behavior:'smooth'}),320);
+    });
+  }
+
+  /* send button */
+  const sendBtnMojs=document.getElementById('send-btn');
+  if(sendBtnMojs){
+    const sb=new mojs.Burst({radius:{0:160},count:16,children:{shape:['circle','polygon','line'],fill:[F,S,G,V],rotate:{360:0},radius:{10:0},duration:1000,delay:'stagger(0,50)',easing:'elastic.out'}});
+    const sr=new mojs.Shape({shape:'circle',fill:'none',stroke:S,strokeWidth:{5:0},radius:{0:130},opacity:{1:0},duration:800,easing:'quad.out'});
+    sendBtnMojs.addEventListener('click',()=>{
+      const r=sendBtnMojs.getBoundingClientRect();
+      const x=r.left+r.width/2+window.scrollX,y=r.top+r.height/2+window.scrollY;
+      sb.tune({x,y}).generate().replay();sr.tune({x,y}).replay();
+    });
+  }
+
+  /* nav sparkle */
+  const sp=new mojs.Burst({radius:{0:28},count:5,children:{shape:'circle',fill:[F,S,G],radius:{3:0},duration:380,easing:'quad.out'}});
+  document.querySelectorAll('.nav-links a,.mob-link').forEach(a=>{
+    a.addEventListener('mouseenter',()=>{
+      const r=a.getBoundingClientRect();
+      sp.tune({x:r.left+r.width/2+window.scrollX,y:r.top+r.height/2+window.scrollY}).generate().replay();
+    });
+  });
+
+  /* cert card click burst */
+  const cc=new mojs.Burst({radius:{0:50},count:6,children:{shape:'polygon',points:5,fill:[F,S,G,V],radius:{5:0},rotate:{180:0},duration:580,delay:'stagger(0,28)',easing:'cubic.out'}});
+  document.querySelectorAll('.cert-card').forEach(card=>{
+    card.addEventListener('click',()=>{
+      const r=card.getBoundingClientRect();
+      cc.tune({x:r.left+r.width/2+window.scrollX,y:r.top+r.height/2+window.scrollY}).generate().replay();
+    });
+  });
+});
+
+/* ── 3D TILT ── */
+document.querySelectorAll('.c3d,.pcard,.cert-card').forEach(card=>{
+  const inner=card.querySelector('.c3d-inner')||card;
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const rY=((e.clientX-r.left-r.width/2)/(r.width/2))*13;
+    const rX=-(((e.clientY-r.top)-r.height/2)/(r.height/2))*9;
+    inner.style.transform=`rotateX(${rX}deg) rotateY(${rY}deg) scale(1.02)`;
+    inner.style.transition='transform .08s ease';
+  });
+  card.addEventListener('mouseleave',()=>{
+    inner.style.transform='rotateX(0) rotateY(0) scale(1)';
+    inner.style.transition='transform .5s ease';
+  });
+});
+
+/* ── SKILL BARS ── */
+const obs=new IntersectionObserver(e=>e.forEach(x=>{
+  if(x.isIntersecting){x.target.style.width=x.target.dataset.w+'%';x.target.classList.add('go')}
+}),{threshold:.4});
+document.querySelectorAll('.sbfill').forEach(f=>obs.observe(f));
+</script>
+
+<!-- ── EMAILJS ── -->
+<script type="text/javascript">
+  emailjs.init("FD-Zc2Mcjok8J7Hb2");
+
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const btn = document.getElementById('send-btn');
+    btn.innerHTML = "Sending... ⏳";
+    btn.disabled = true;
+
+    const serviceID = 'service_mp8kjrn';
+    const templateID = 'template_eg13eng';
+
+    emailjs.sendForm(serviceID, templateID, this)
+      .then(() => {
+        btn.innerHTML = "Sent Successfully! ✅";
+        this.reset();
+        setTimeout(() => {
+          btn.innerHTML = "Send Message 🚀";
+          btn.disabled = false;
+        }, 3000);
+      }, (err) => {
+        btn.innerHTML = "Failed to Send ❌";
+        btn.disabled = false;
+        console.error("EmailJS Error:", err);
+        alert("Message send nahi hua: " + JSON.stringify(err));
+      });
+  });
+</script>
+</body>
+</html>
